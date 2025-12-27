@@ -2,8 +2,8 @@
 
 Official TypeScript/JavaScript SDK for Islamic Open Finance APIs.
 
-[![npm version](https://img.shields.io/npm/v/@islamic-open-finance/sdk.svg)](https://www.npmjs.com/package/@islamic-open-finance/sdk)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
 
 ## Installation
 
