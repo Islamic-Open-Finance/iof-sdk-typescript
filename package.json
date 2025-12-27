@@ -1,0 +1,38 @@
+{
+  "name": "@iof/sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for Islamic Open Finance Rail API",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./contracts": {
+      "import": "./dist/contracts.js",
+      "types": "./dist/contracts.d.ts"
+    },
+    "./rails": {
+      "import": "./dist/rails.js",
+      "types": "./dist/rails.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts src/contracts.ts src/rails.ts --format esm",
+    "dev": "tsup src/index.ts src/contracts.ts src/rails.ts --format esm --dts --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "echo 'No tests yet'",
+    "test:unit": "echo 'No tests yet'",
+    "generate": "node scripts/generate-from-openapi.js"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2"
+  }
+}
