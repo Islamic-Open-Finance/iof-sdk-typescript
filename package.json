@@ -1,7 +1,18 @@
 {
-  "name": "@iof/sdk",
+  "name": "@islamic-open-finance/sdk",
   "version": "1.0.0",
   "description": "TypeScript SDK for Islamic Open Finance Rail API",
+  "license": "Apache-2.0",
+  "author": "Islamic Open Finance <oss@islamicopenfinance.com>",
+  "homepage": "https://github.com/Islamic-Open-Finance/iof-sdk-typescript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Islamic-Open-Finance/iof-sdk-typescript.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Islamic-Open-Finance/iof-sdk-typescript/issues"
+  },
+  "keywords": ["islamic-finance", "sdk", "api", "fintech", "shariah", "murabaha", "sukuk"],
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
