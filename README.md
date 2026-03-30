@@ -1,9 +1,9 @@
 # IOF TypeScript SDK
 
-Official TypeScript/JavaScript SDK for Islamic Open Finance APIs.
+Official TypeScript/JavaScript SDK for Islamic Open Finance™ APIs.
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
+[![npm version](https://badge.fury.io/js/@islamic-open-finance%2Fsdk.svg)](https://www.npmjs.com/package/@islamic-open-finance/sdk)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 
 ## Installation
 
@@ -18,58 +18,58 @@ pnpm add @islamic-open-finance/sdk
 ## Quick Start
 
 ```typescript
-import { IOFClient } from '@islamic-open-finance/sdk';
+import { IOFClient } from "@islamic-open-finance/sdk";
 
 // Initialize the client
 const client = new IOFClient({
-  apiKey: 'your-api-key',
-  environment: 'sandbox', // 'sandbox' | 'production'
+  apiKey: process.env.IOF_API_KEY,
+  environment: "sandbox", // 'sandbox' | 'production'
 });
 
 // Create a Murabaha contract
 const contract = await client.contracts.create({
-  type: 'murabaha',
+  type: "murabaha",
   parties: [
-    { role: 'seller', entityId: 'entity_123' },
-    { role: 'buyer', entityId: 'entity_456' },
+    { role: "seller", entityId: "entity_123" },
+    { role: "buyer", entityId: "entity_456" },
   ],
   terms: {
     costPrice: 100000,
     profitMargin: 0.05,
-    paymentSchedule: 'monthly',
+    paymentSchedule: "monthly",
     tenure: 36,
   },
 });
 
-console.log('Contract created:', contract.id);
+console.log("Contract created:", contract.id);
 ```
 
 ## Features
 
 ### All 29 Financial Rails
 
-The SDK provides full coverage for all Islamic Open Finance rails:
+The SDK provides full coverage for all Islamic Open Finance™ rails:
 
-| Category | Rails |
-|----------|-------|
-| **Contracts** | Murabaha, Musharaka, Ijara, Sukuk, Mudaraba, Istisna, Salam |
-| **Compliance** | KYC, AML, Consent, Governance, Disputes |
-| **Operations** | Treasury, Clearing, Reconciliation, Routing, Settlement |
-| **Platform** | Analytics, Billing, Reporting, Notifications, Webhooks |
-| **Identity** | Access Consent, Legal, Partners, Underwriting |
-| **Specialty** | Zakat, Portfolio, Risk, Cases, Observability |
+| Category       | Rails                                                       |
+| -------------- | ----------------------------------------------------------- |
+| **Contracts**  | Murabaha, Musharaka, Ijara, Sukuk, Mudaraba, Istisna, Salam |
+| **Compliance** | KYC, AML, Consent, Governance, Disputes                     |
+| **Operations** | Treasury, Clearing, Reconciliation, Routing, Settlement     |
+| **Platform**   | Analytics, Billing, Reporting, Notifications, Webhooks      |
+| **Identity**   | Access Consent, Legal, Partners, Underwriting               |
+| **Specialty**  | Zakat, Portfolio, Risk, Cases, Observability                |
 
 ### Type Safety
 
 Full TypeScript support with comprehensive type definitions:
 
 ```typescript
-import type { Contract, MurabahaTerms, Party } from '@islamic-open-finance/sdk';
+import type { Contract, MurabahaTerms, Party } from "@islamic-open-finance/sdk";
 
 const terms: MurabahaTerms = {
   costPrice: 100000,
   profitMargin: 0.05,
-  paymentSchedule: 'monthly',
+  paymentSchedule: "monthly",
   tenure: 36,
 };
 ```
@@ -94,12 +94,12 @@ try {
 ```typescript
 // Automatic pagination handling
 const contracts = await client.contracts.list({
-  status: 'active',
+  status: "active",
   limit: 100,
 });
 
 // Iterate through all pages
-for await (const contract of client.contracts.listAll({ status: 'active' })) {
+for await (const contract of client.contracts.listAll({ status: "active" })) {
   console.log(contract.id);
 }
 ```
@@ -127,9 +127,9 @@ await client.contracts.updateStatus('contract_123', 'activated');
 ```typescript
 // Create a verification
 const verification = await client.kyc.createVerification({
-  entityId: 'entity_123',
-  type: 'individual',
-  documents: [{ type: 'passport', fileId: 'file_abc' }],
+  entityId: "entity_123",
+  type: "individual",
+  documents: [{ type: "passport", fileId: "file_abc" }],
 });
 
 // Check verification status
@@ -141,15 +141,15 @@ const status = await client.kyc.getVerification(verification.id);
 ```typescript
 // Get positions
 const positions = await client.treasury.getPositions({
-  workspaceId: 'ws_123',
+  workspaceId: "ws_123",
 });
 
 // Record a transaction
 await client.treasury.recordTransaction({
-  type: 'credit',
+  type: "credit",
   amount: 50000,
-  currency: 'SAR',
-  reference: 'TXN-001',
+  currency: "SAR",
+  reference: "TXN-001",
 });
 ```
 
@@ -158,17 +158,13 @@ await client.treasury.recordTransaction({
 ```typescript
 // Create a webhook subscription
 const webhook = await client.webhooks.create({
-  url: 'https://your-server.com/webhooks',
-  events: ['contract.created', 'contract.activated'],
-  secret: 'whsec_your_secret',
+  url: "https://your-server.com/webhooks",
+  events: ["contract.created", "contract.activated"],
+  secret: "whsec_your_secret",
 });
 
 // Verify webhook signatures
-const isValid = client.webhooks.verifySignature(
-  payload,
-  signature,
-  secret
-);
+const isValid = client.webhooks.verifySignature(payload, signature, secret);
 ```
 
 ### Analytics
@@ -176,10 +172,10 @@ const isValid = client.webhooks.verifySignature(
 ```typescript
 // Query analytics
 const analytics = await client.analytics.query({
-  metric: 'contract_volume',
-  from: '2024-01-01',
-  to: '2024-12-31',
-  groupBy: 'month',
+  metric: "contract_volume",
+  from: "2024-01-01",
+  to: "2024-12-31",
+  groupBy: "month",
 });
 ```
 
@@ -188,27 +184,33 @@ const analytics = await client.analytics.query({
 ```typescript
 const client = new IOFClient({
   // Required
-  apiKey: 'your-api-key',
+  apiKey: process.env.IOF_API_KEY,
 
   // Optional
-  environment: 'sandbox',  // 'sandbox' | 'production'
-  baseUrl: 'https://api.custom-domain.com',  // Override base URL
-  timeout: 30000,  // Request timeout in ms
-  retries: 3,  // Number of retries for failed requests
+  environment: "sandbox", // 'sandbox' | 'production'
+  baseUrl: "https://api.custom-domain.com", // Override base URL
+  timeout: 30000, // Request timeout in ms
+  retries: 3, // Number of retries for failed requests
 
   // Hooks
-  onRequest: (config) => { /* modify request */ },
-  onResponse: (response) => { /* handle response */ },
-  onError: (error) => { /* handle error */ },
+  onRequest: (config) => {
+    /* modify request */
+  },
+  onResponse: (response) => {
+    /* handle response */
+  },
+  onError: (error) => {
+    /* handle error */
+  },
 });
 ```
 
 ## Environments
 
-| Environment | Base URL |
-|-------------|----------|
-| Sandbox | `https://api.sandbox.islamicopen.finance` |
-| Production | `https://api.islamicopen.finance` |
+| Environment | Base URL                                  |
+| ----------- | ----------------------------------------- |
+| Sandbox     | `https://api.sandbox.islamicopen.finance` |
+| Production  | `https://api.islamicopen.finance`         |
 
 ## Rate Limits
 
@@ -220,14 +222,14 @@ The SDK automatically handles rate limiting with exponential backoff:
 ## Testing
 
 ```typescript
-import { IOFClient, createMockClient } from '@islamic-open-finance/sdk/testing';
+import { IOFClient, createMockClient } from "@islamic-open-finance/sdk/testing";
 
 // Create a mock client for testing
 const mockClient = createMockClient();
 
 mockClient.contracts.create.mockResolvedValue({
-  id: 'contract_mock_123',
-  status: 'draft',
+  id: "contract_mock_123",
+  status: "draft",
 });
 ```
 
