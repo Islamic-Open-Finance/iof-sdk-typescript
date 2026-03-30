@@ -1,6 +1,6 @@
 /**
  * Islamic Open Finance SDK
- * TypeScript SDK for the IOF Rail API
+ * TypeScript SDK for the IOF Rail API — 125 rails across 12 categories
  */
 
 export { IOFClient, HttpClient, ApiException } from "./client.js";
@@ -84,6 +84,11 @@ export {
   getCoreRails,
   getFinancialRails,
   getGovernanceRails,
+  getIslamicContractRails,
+  getCapitalMarketRails,
+  getTakafulRails,
+  getTradeFinanceRails,
+  getPlatformRails,
 } from "./rails.js";
 
 // Re-export for convenience
