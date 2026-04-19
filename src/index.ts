@@ -70,6 +70,25 @@ export type {
   SearchHealthResponse,
   SearchIndexName,
   ReindexResponse,
+  // Settlement Engine (moat namespace)
+  Settlement,
+  SettlementMode,
+  SettlementStatus,
+  SettlementStatusValue,
+  SettlementParty,
+  SettlementConfirmRequest,
+  SettlementResult,
+  SettlementNettingRequest,
+  SettlementNettingResult,
+  // Evidence Engine (moat namespace)
+  EvidencePack,
+  EvidenceFormat,
+  EvidenceExportRequest,
+  EvidenceVerifyRequest,
+  EvidenceVerifyResult,
+  EvidenceControl,
+  EvidenceControlCatalogue,
+  ComplianceFramework,
 } from "./client.js";
 
 // Rail types and utilities
