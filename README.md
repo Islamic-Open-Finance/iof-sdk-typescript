@@ -5,6 +5,15 @@ Official TypeScript/JavaScript SDK for Islamic Open Finance™ APIs.
 [![npm version](https://badge.fury.io/js/@islamic-open-finance%2Fsdk.svg)](https://www.npmjs.com/package/@islamic-open-finance/sdk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 
+## Overview
+
+Typed client for **109 Shariah-native rails across 19 categories** (142+ endpoints) composed from **10 native domain engines** over a single double-entry ledger. Two of those engines are the platform's defensible moats you call through this SDK:
+
+- **`client.settlement.*`** — Settlement Engine. 24×7×365 DvP/FOP/RVP/DFP finality for Murabaha, Ijarah, Salam, Sukuk. AAOIFI SS-1/8/10/17/21/30 enforced at the state machine; CSDR Art. 7 penalties priced pre-confirm; ribawi-pair netting honoured. Reclaims 60–140 bps per corridor.
+- **`client.evidence.*`** — Evidence Engine. Signed, tamper-evident compliance pack emitted on every trade: 47/54 controls across SOC 2, ISO 27001, AAOIFI, GDPR, PSD2, IFSB and ISO 20022, SHA-256 Merkle root + HMAC signature, one-call verification. Reclaims 30–55 bps on audit + re-papering.
+
+Combined: **100–195 bps** of Islamic-finance friction reclaimed per corridor — no core replacement.
+
 ## Installation
 
 ```bash
