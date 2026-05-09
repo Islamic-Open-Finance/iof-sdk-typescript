@@ -3,7 +3,7 @@
 Official TypeScript/JavaScript SDK for Islamic Open Finance™ APIs.
 
 [![npm version](https://badge.fury.io/js/@islamic-open-finance%2Fsdk.svg)](https://www.npmjs.com/package/@islamic-open-finance/sdk)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache_2.0-blue?logo=opensourceinitiative&logoColor=white)](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Overview
 
